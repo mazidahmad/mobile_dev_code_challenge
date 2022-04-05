@@ -1,16 +1,25 @@
-# cindchat
+# Cindchat
 
-A new Flutter project.
+A Dummy Chat App for Cindrum Assignment
 
-## Getting Started
+## Environment
+  
+Flutter 2.8.1 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 77d935af4d (3 months ago) • 2021-12-16 08:37:33 -0800
+Engine • revision 890a5fca2e
+Tools • Dart 2.15.1
 
-This project is a starting point for a Flutter application.
+## External Library
+  
+ - GetX
+ - Bloc
+ - Hive
+ - GetIt
+ - Photo View
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ ## Demo  
+https://drive.google.com/drive/folders/1bNnl-Oc9-hoynBJvbkl3o8ON6urj4dzC?usp=sharing
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## APK File
+https://drive.google.com/file/d/1tE1SyYtqSHxnz4zn8U2BvEepuh7CIzOm/view?usp=sharing
