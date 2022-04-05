@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "body": "gambar pertama",
+      "body": "https://instabug.com/blog/wp-content/uploads/2020/02/AppDev_Flutter-Apps.png",
       "attachment": "image",
       "timestamp": "1544086398",
       "from": "A",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "body": null,
+      "body": "https://ichi.pro/assets/images/max/724/1*o3uWxNqRWqE8BooPMtmOMQ.jpeg",
       "attachment": "image",
       "timestamp": "1544086458",
       "from": "A",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "body": null,
+      "body": "https://uploads-ssl.webflow.com/5f841209f4e71b2d70034471/60bb4a2e143f632da3e56aea_Flutter%20app%20development%20(2).png",
       "attachment": "image",
       "timestamp": "1544086518",
       "from": "A",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "body": null,
+      "body": "https://www.qsstechnosoft.com/wp-content/uploads/2021/03/flutter-2.0.png",
       "attachment": "image",
       "timestamp": "1544086698",
       "from": "B",
@@ -50,7 +50,11 @@
     },
     {
       "id": 7,
-      "body": null,
+      "body": {
+        "name": "Mazid Ahmad",
+        "image": "https://instagram.fcgk37-2.fna.fbcdn.net/v/t51.2885-19/223952483_1783053615214044_8492110840236642579_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fcgk37-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=2_JAAsaAYBsAX9-KZy4&edm=ABfd0MgBAAAA&ccb=7-4&oh=00_AT_P9GRtPYFttUhgmhyaFhyEvFazeR_3duZEuFYK93zLog&oe=6251DF6D&_nc_sid=7bff83",
+        "phoneNumber": "081290370760"
+      },
       "attachment": "contact",
       "timestamp": "1544087118",
       "from": "A",
@@ -58,7 +62,11 @@
     },
     {
       "id": 8,
-      "body": null,
+      "body": {
+        "name": "John Doe",
+        "image": "https://portrait-geneva.ch/wp-content/uploads/2019/09/Portraits_Headshots_Geneva_-10-1-1024x819.jpg",
+        "phoneNumber": "081232156378"
+      },
       "attachment": "contact",
       "timestamp": "1544087418",
       "from": "A",
@@ -66,7 +74,11 @@
     },
     {
       "id": 9,
-      "body": null,
+      "body": {
+        "name": "John Doe",
+        "image": "https://portrait-geneva.ch/wp-content/uploads/2019/09/Portraits_Headshots_Geneva_-10-1-1024x819.jpg",
+        "phoneNumber": "081232156378"
+      },
       "attachment": "contact",
       "timestamp": "1544163018",
       "from": "A",
@@ -74,7 +86,11 @@
     },
     {
       "id": 10,
-      "body": null,
+      "body": {
+        "name": "John Doe",
+        "image": "https://portrait-geneva.ch/wp-content/uploads/2019/09/Portraits_Headshots_Geneva_-10-1-1024x819.jpg",
+        "phoneNumber": "081232156378"
+      },
       "attachment": "contact",
       "timestamp": "1544163198",
       "from": "A",
@@ -82,7 +98,11 @@
     },
     {
       "id": 11,
-      "body": null,
+      "body": {
+        "name": "John Doe",
+        "image": "https://portrait-geneva.ch/wp-content/uploads/2019/09/Portraits_Headshots_Geneva_-10-1-1024x819.jpg",
+        "phoneNumber": "081232156378"
+      },
       "attachment": "contact",
       "timestamp": "1544163618",
       "from": "A",
@@ -156,7 +176,7 @@
       "id": 20,
       "body": "pesan kelima",
       "attachment": null,
-      "timestamp": "1544257458",
+      "timestamp": "1458090060000",
       "from": "B",
       "to": "A"
     },
@@ -164,7 +184,7 @@
       "id": 21,
       "body": "gambar kedua",
       "attachment": "image",
-      "timestamp": "1544257818",
+      "timestamp": "1458090060000",
       "from": "A",
       "to": "B"
     },
@@ -172,7 +192,7 @@
       "id": 22,
       "body": null,
       "attachment": "contact",
-      "timestamp": "1544258118",
+      "timestamp": "1458090060000",
       "from": "A",
       "to": "B"
     },
@@ -180,7 +200,7 @@
       "id": 23,
       "body": null,
       "attachment": "contact",
-      "timestamp": "1544258178",
+      "timestamp": "1458090060000",
       "from": "A",
       "to": "B"
     },
@@ -188,7 +208,7 @@
       "id": 24,
       "body": null,
       "attachment": "contact",
-      "timestamp": "1544258238",
+      "timestamp": "1458090060000",
       "from": "A",
       "to": "B"
     },
@@ -196,7 +216,7 @@
       "id": 25,
       "body": null,
       "attachment": "contact",
-      "timestamp": "1544258298",
+      "timestamp": "1458090060000",
       "from": "A",
       "to": "B"
     },
@@ -204,7 +224,7 @@
       "id": 26,
       "body": null,
       "attachment": "image",
-      "timestamp": "1544260158",
+      "timestamp": "1649120474484",
       "from": "A",
       "to": "B"
     },
@@ -212,7 +232,7 @@
       "id": 27,
       "body": null,
       "attachment": "image",
-      "timestamp": "1544335758",
+      "timestamp": "1649120474484",
       "from": "A",
       "to": "B"
     },
@@ -220,7 +240,7 @@
       "id": 28,
       "body": null,
       "attachment": "image",
-      "timestamp": "1544335818",
+      "timestamp": "1649120474484",
       "from": "A",
       "to": "B"
     },
@@ -228,7 +248,7 @@
       "id": 29,
       "body": null,
       "attachment": "image",
-      "timestamp": "1544335878",
+      "timestamp": "1649120474484",
       "from": "A",
       "to": "B"
     },
@@ -236,7 +256,7 @@
       "id": 30,
       "body": null,
       "attachment": "image",
-      "timestamp": "1544335938",
+      "timestamp": "1649120474484",
       "from": "A",
       "to": "B"
     },
@@ -244,7 +264,7 @@
       "id": 31,
       "body": "gambar ketiga",
       "attachment": "image",
-      "timestamp": "1544339538",
+      "timestamp": "1649120474484",
       "from": "A",
       "to": "B"
     }
