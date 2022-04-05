@@ -6,6 +6,7 @@ import 'package:cindchat/shared/storage.dart';
 
 abstract class ChatLocalDatasource {
   Future<List<ChatModel>?> getAllHistoryChat();
+  Future<void> addDataChat(ChatModel data);
 }
 
 class ChatLocalDatasourceImpl extends ChatLocalDatasource {
@@ -25,6 +26,25 @@ class ChatLocalDatasourceImpl extends ChatLocalDatasource {
         });
       }
       return listData;
+    } catch (e) {
+      throw DatabaseFailure(e.toString());
+    }
+  }
+
+  @override
+  Future<void> addDataChat(ChatModel data) async {
+    try {
+      var _data = await _storage.getData(key: "chat");
+      if (_data == null) {
+        var _newData = {
+          "data": [data.toMap()]
+        };
+        await _storage.putData(key: "chat", data: _newData);
+      } else {
+        _data = jsonDecode(_data);
+        _data["data"]?.add(data.toMap());
+        await _storage.putData(key: "chat", data: _data);
+      }
     } catch (e) {
       throw DatabaseFailure(e.toString());
     }

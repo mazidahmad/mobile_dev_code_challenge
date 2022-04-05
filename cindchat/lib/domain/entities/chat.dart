@@ -44,7 +44,9 @@ class Chat extends Equatable {
       timestamp: timestamp,
       from: from,
       to: to,
-      body: (attachment == "contact") ? (body as Contact).toModel() : body);
+      body: (body != null && attachment != null && attachment == "contact")
+          ? (body as Contact).toModel()
+          : body);
 
   @override
   List<Object?> get props {

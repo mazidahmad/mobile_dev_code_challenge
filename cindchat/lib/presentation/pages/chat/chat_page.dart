@@ -21,6 +21,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  final TextEditingController _messageController = TextEditingController();
   late SyncCubit _syncCubit;
   late ChatCubit _chatCubit;
 
@@ -28,6 +29,7 @@ class _ChatPageState extends State<ChatPage> {
   String _other = "B";
   List<String> _groupedImage = [];
   List<Contact> _groupedContact = [];
+  bool _isFilled = false;
 
   @override
   void initState() {
@@ -124,7 +126,11 @@ class _ChatPageState extends State<ChatPage> {
           }
           if (state is SyncDone) {
             return BlocConsumer<ChatCubit, ChatState>(
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state is ChatLoaded) {
+                  _messageController.text = "";
+                }
+              },
               builder: (context, state) {
                 if (state is ChatLoading) {
                   return const Center(
@@ -172,6 +178,11 @@ class _ChatPageState extends State<ChatPage> {
 
                                         _groupedImage.clear();
                                         _groupedContact.clear();
+                                      }
+
+                                      if (state.chats[idx].body != null &&
+                                          state.chats[idx].attachment == null) {
+                                        _isGroupedContent = false;
                                       }
 
                                       if (idx + 1 < state.chats.length &&
@@ -388,23 +399,50 @@ class _ChatPageState extends State<ChatPage> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              const Expanded(
+                              Expanded(
                                 child: AppTextField(
+                                  controller: _messageController,
+                                  onChanged: (value) {
+                                    if (value != null && value.isNotEmpty) {
+                                      setState(() {
+                                        _isFilled = true;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        _isFilled = false;
+                                      });
+                                    }
+                                  },
                                   hint: "Enter your message here",
                                 ),
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
-                              const SizedBox(
-                                width: 30,
-                                height: 30,
-                                child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                    "https://instagram.fcgk37-2.fna.fbcdn.net/v/t51.2885-19/223952483_1783053615214044_8492110840236642579_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fcgk37-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=2_JAAsaAYBsAX9-KZy4&edm=ABfd0MgBAAAA&ccb=7-4&oh=00_AT_P9GRtPYFttUhgmhyaFhyEvFazeR_3duZEuFYK93zLog&oe=6251DF6D&_nc_sid=7bff83",
-                                  ),
-                                ),
-                              ),
+                              (_isFilled)
+                                  ? GestureDetector(
+                                      onTap: () {
+                                        _chatCubit.addChatData(
+                                            _messageController.text,
+                                            state.chats);
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      child: Container(
+                                        child: Icon(
+                                          Icons.send,
+                                          color: appColor.sGreenGrass,
+                                        ),
+                                      ),
+                                    )
+                                  : const SizedBox(
+                                      width: 30,
+                                      height: 30,
+                                      child: CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                          "https://instagram.fcgk37-2.fna.fbcdn.net/v/t51.2885-19/223952483_1783053615214044_8492110840236642579_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fcgk37-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=2_JAAsaAYBsAX9-KZy4&edm=ABfd0MgBAAAA&ccb=7-4&oh=00_AT_P9GRtPYFttUhgmhyaFhyEvFazeR_3duZEuFYK93zLog&oe=6251DF6D&_nc_sid=7bff83",
+                                        ),
+                                      ),
+                                    ),
                             ],
                           ),
                         )

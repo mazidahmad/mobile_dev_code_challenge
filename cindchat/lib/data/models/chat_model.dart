@@ -41,9 +41,11 @@ class ChatModel extends Equatable {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'body': body,
+      'body': (body != null && attachment != null && attachment is ContactModel)
+          ? (body as ContactModel).toMap()
+          : body,
       'attachment': attachment,
-      'timestamp': timestamp?.millisecondsSinceEpoch,
+      'timestamp': timestamp?.millisecondsSinceEpoch.toString(),
       'from': from,
       'to': to,
     };
@@ -51,7 +53,7 @@ class ChatModel extends Equatable {
 
   factory ChatModel.fromMap(Map<String, dynamic> map) {
     return ChatModel(
-      id: map['id']?.toInt(),
+      id: map['id'],
       body: map['body'] != null
           ? map['attachment'] == "contact"
               ? ContactModel.fromMap(map['body'])

@@ -11,6 +11,9 @@ class SyncLocalDatasourceImpl extends SyncLocalDatasource {
 
   @override
   Future<void> syncChatData(Map<String, dynamic> data) async {
-    await _storage.putData(key: "chat", data: data);
+    var _data = await _storage.getData(key: "chat");
+    if (_data == null) {
+      await _storage.putData(key: "chat", data: data);
+    }
   }
 }

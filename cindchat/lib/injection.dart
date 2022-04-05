@@ -3,6 +3,7 @@ import 'package:cindchat/data/repositories/chat_repository_impl.dart';
 import 'package:cindchat/data/repositories/sync_repository_impl.dart';
 import 'package:cindchat/domain/repositories/chat_repository.dart';
 import 'package:cindchat/domain/repositories/sync_repository.dart';
+import 'package:cindchat/domain/usecases/chat/add_chat_data.dart';
 import 'package:cindchat/domain/usecases/chat/get_all_chat_history.dart';
 import 'package:cindchat/domain/usecases/sync_dummy_data.dart';
 import 'package:cindchat/presentation/pages/chat/cubit/chat_cubit.dart';
@@ -33,8 +34,9 @@ void init() {
   // Use Case
   locator.registerFactory(() => SyncDummyData(locator()));
   locator.registerFactory(() => GetAllChatHistory(locator()));
+  locator.registerFactory(() => AddChatData(locator()));
 
   // Cubit
   locator.registerFactory(() => SyncCubit(locator()));
-  locator.registerFactory(() => ChatCubit(locator()));
+  locator.registerFactory(() => ChatCubit(locator(), locator()));
 }

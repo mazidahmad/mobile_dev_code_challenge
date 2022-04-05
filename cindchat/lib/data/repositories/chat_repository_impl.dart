@@ -18,4 +18,14 @@ class ChatRepositoryImpl extends ChatRepository {
       return Left(DatabaseFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> addChatData(Chat data) async {
+    try {
+      await _localDatasource.addDataChat(data.toModel());
+      return const Right(null);
+    } catch (e) {
+      return Left(DatabaseFailure(e.toString()));
+    }
+  }
 }

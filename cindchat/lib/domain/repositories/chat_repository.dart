@@ -4,4 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class ChatRepository {
   Future<Either<Failure, List<Chat>>> getAllChatHistory();
+  Future<Either<Failure, void>> addChatData(Chat data);
 }
