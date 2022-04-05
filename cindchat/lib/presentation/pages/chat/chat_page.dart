@@ -116,6 +116,9 @@ class _ChatPageState extends State<ChatPage> {
         listener: (context, state) {
           if (state is SyncDone) {
             _chatCubit.fetchAllChatHistory();
+            setState(() {
+              _isFilled = false;
+            });
           }
         },
         builder: (context, state) {
