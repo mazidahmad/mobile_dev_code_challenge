@@ -1,7 +1,9 @@
 import 'package:cindchat/presentation/themes/app_assets.dart';
 import 'package:cindchat/presentation/themes/app_color.dart';
 import 'package:cindchat/presentation/themes/app_text.dart';
+import 'package:cindchat/shared/routers.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BubbleContentImage extends StatelessWidget {
   const BubbleContentImage({Key? key, required this.imagePaths})
@@ -35,7 +37,55 @@ class BubbleContentImage extends StatelessWidget {
                               alignment: Alignment.center,
                               fit: StackFit.expand,
                               children: [
-                                Image(
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed(Routers.imageViewer,
+                                        arguments: {"image": imagePaths[idx]});
+                                  },
+                                  child: Hero(
+                                    tag: "image",
+                                    child: Image(
+                                      image: NetworkImage(imagePaths[idx]),
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (context, exception, _) {
+                                        return Image(
+                                          image: AppAsset.noImage,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed(Routers.galleryViewer,
+                                        arguments: {"images": imagePaths});
+                                  },
+                                  child: Container(
+                                    color: appColor.background.withOpacity(0.7),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(Icons
+                                            .photo_size_select_actual_outlined),
+                                        Text(
+                                          "${imagePaths.length - 4} more",
+                                          style: AppText.heading5,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                Get.toNamed(Routers.imageViewer,
+                                    arguments: {"image": imagePaths[idx]});
+                              },
+                              child: Hero(
+                                tag: "image",
+                                child: Image(
                                   image: NetworkImage(imagePaths[idx]),
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, exception, _) {
@@ -44,55 +94,50 @@ class BubbleContentImage extends StatelessWidget {
                                     );
                                   },
                                 ),
-                                Container(
-                                  color: appColor.background.withOpacity(0.7),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Icon(Icons
-                                          .photo_size_select_actual_outlined),
-                                      Text(
-                                        "${imagePaths.length - 4} more",
-                                        style: AppText.heading5,
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                          : Image(
-                              image: NetworkImage(imagePaths[idx]),
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, exception, _) {
-                                return Image(
-                                  image: AppAsset.noImage,
-                                );
-                              },
+                              ),
                             );
                     })
                 : (imagePaths.length == 1)
-                    ? Image(
-                        image: NetworkImage(imagePaths[0]),
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, exception, _) {
-                          return Image(
-                            image: AppAsset.noImage,
-                          );
+                    ? GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routers.imageViewer,
+                              arguments: {"image": imagePaths[0]});
                         },
+                        child: Hero(
+                          tag: "image",
+                          child: Image(
+                            image: NetworkImage(imagePaths[0]),
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, exception, _) {
+                              return Image(
+                                image: AppAsset.noImage,
+                              );
+                            },
+                          ),
+                        ),
                       )
                     : Wrap(
                         children: List.generate(
                             imagePaths.length,
-                            (idx) => Image(
-                                  width: (idx < 2) ? 100 : double.infinity,
-                                  height: 100,
-                                  image: NetworkImage(imagePaths[idx]),
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, exception, _) {
-                                    return Image(
-                                      image: AppAsset.noImage,
-                                    );
+                            (idx) => GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed(Routers.imageViewer,
+                                        arguments: {"image": imagePaths[idx]});
                                   },
+                                  child: Hero(
+                                    tag: "image",
+                                    child: Image(
+                                      width: (idx < 2) ? 100 : double.infinity,
+                                      height: 100,
+                                      image: NetworkImage(imagePaths[idx]),
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (context, exception, _) {
+                                        return Image(
+                                          image: AppAsset.noImage,
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 )),
                       ),
           )
